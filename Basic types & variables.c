@@ -1,4 +1,5 @@
-/* C Programming Basics: Demonstrations and Practices
+/* C Programming Basics: Demonstrations and Practices (No Separate Functions)
+   All code is in main() for simplicity.
    Compile: gcc basics.c -o basics
    Run: ./basics
    This file shows program structure, I/O, types, casting, and sizeof.
@@ -8,11 +9,6 @@
 // Include necessary headers
 #include <stdio.h>   // For printf, scanf
 #include <stdlib.h>  // For exit (optional)
-
-// Function prototype (forward declaration)
-void print_sizes(void);
-void casting_demo(void);
-void input_demo(void);
 
 int main() {  // Program entry point
     printf("=== Hello World + Program Structure ===\n");
@@ -38,23 +34,7 @@ int main() {  // Program entry point
     printf("Max tries (const int): %d\n", max_tries);
     printf("\n");
 
-    // Print sizes
-    print_sizes();
-
-    // Type-casting practice
-    printf("\n=== Type-Casting Exercises ===\n");
-    casting_demo();
-
-    // Input/Output practice (interactive)
-    printf("\n=== Practice: Print and Take Input ===\n");
-    input_demo();
-
-    printf("\nProgram complete. Returning 0 for success.\n");
-    return 0;  // Exit main
-}
-
-// Function to print sizes of types (demonstrates sizeof)
-void print_sizes(void) {
+    // Print sizes (inlined)
     printf("Sizes on this machine (bytes):\n");
     printf("char: %zu\n", sizeof(char));
     printf("short: %zu\n", sizeof(short));
@@ -67,10 +47,9 @@ void print_sizes(void) {
     int x = 10;
     printf("Size of variable x (int): %zu\n", sizeof(x));
     printf("\n");
-}
 
-// Function for casting demo
-void casting_demo(void) {
+    // Type-casting practice (inlined)
+    printf("=== Type-Casting Exercises ===\n");
     int a = 10, b = 3;
     printf("Integer division (10 / 3): %d\n", a / b);  // 3 (truncates)
 
@@ -91,10 +70,10 @@ void casting_demo(void) {
     int large = 300;
     char c = (char)large;  // Truncates to 44 (300 % 256)
     printf("int 300 cast to char: %d (as int: %c)\n", c, c);
-}
+    printf("\n");
 
-// Function for input demo (interactive)
-void input_demo(void) {
+    // Input/Output practice (interactive, inlined)
+    printf("=== Practice: Print and Take Input ===\n");
     int user_age;
     char user_initial;
     float user_height;
@@ -119,4 +98,7 @@ void input_demo(void) {
 
     // Clear input buffer (simple flush for next inputs)
     // In practice, use getchar() or fgets for robustness
+
+    printf("\nProgram complete. Returning 0 for success.\n");
+    return 0;  // Exit main
 }
